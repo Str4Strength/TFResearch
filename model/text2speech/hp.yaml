@@ -1,0 +1,82 @@
+---
+
+ARTS:
+
+  # 24k setting
+  audio:
+    sampling_rate: 24000
+    window_size: 960
+    hop_size: 240
+    aligner_hop_size: 960
+    fft_size: 3840
+    mel_frequency: 80
+    aligner_max_frequency: 4000 # aligner
+    aligner_min_frequency: 20 # aligner
+    max_frequency: 12000
+    min_frequency: 20
+    dBFS: -23
+    log_scaler: 0.0025
+
+  # 48k setting
+  #audio:
+  #  sampling_rate: 48000
+  #  window_size: 1920
+  #  hop_size: 480
+  #  fft_size: 3840
+  #  mel_frequency: 128
+  #  max_frequency: 7600 # aligner
+  #  min_frequency: 40
+  #  dBFS: -23
+  #  log_scaler: 0.0025
+
+  train:
+    penalty_targets: ["!@#$%^&*()"]
+    penalty_rate: [1.0]
+    data_path: '/danube/datasets/ppcd'
+    log_path: '/home/junwoo/CoreResearch/logs/text2speech'
+    transfer_path: Null
+    #package_size: 400000000 # aligner
+    package_size: 200000000 # duration
+    clusters: 500000
+    slicer: 1
+    voice:
+      left: 32
+      right: 32
+    threads: 64
+    buffers: 3
+    steps_per_epoch: 1000
+    loss_multiplier:
+      aligner:
+        image: 1.0
+      duration:
+        l1: 1.0
+
+  optimizer:
+    initial_learning_rate: 0.0001
+    #terminal_learning_rate: 0.0001
+    decay_steps: 100000
+    decay_power: 1
+    decay_cycle: False
+    weight_decay: 0.0001
+
+    beta_1: 0.0
+    beta_2: 0.98
+    epsilon: 0.00000001
+
+  aligner:
+    features: 512
+    text_features: 512
+    condition_compress: 4
+    encodings: 4
+    decodings: 3
+    shift: 5
+    scope: 'ALGN'
+
+  duration:
+    features: 512
+    iteration: 3
+    scope: 'DRTN'
+
+  transformer:
+
+

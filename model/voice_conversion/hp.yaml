@@ -1,0 +1,240 @@
+---
+
+naevis_441h:
+
+  # signal process
+  sampling_rate: 44100
+  window_size: 2048
+  hop_size: 512
+  fft_size: 2048
+  melfreq_size: 128
+  meltime_size: 256
+  low_clip_hertz: 40
+  high_clip_hertz: 16000
+
+  # data
+  batch_size: 6
+  n_prefetch: 128
+  n_process: 12
+  train_path: '/danube/datasets/naevis_441h'
+  test_path: '/danube/datasets/naevis_441h'
+  pack_path: '/home/junwoo/CoreResearch'
+  log_path: 'logs'
+
+  discriminator:
+    scope: 'discriminator'
+    load_case: ''
+    features: 16
+    squeezes: [[1, 1], [2, 1], [2, 2], [2, 2], [2, 2], [2, 2], [2, 2], [2, 2], [2, 2]]
+    networks: 6
+    groups: 2
+    stddev_features: 128
+
+  neutralizer:
+    load_case: ''
+    scope: 'neutralizer'
+    features: 64
+    squeezes: [[4, 8], [2, 2], [2, 2], [2, 2], [2, 2], [2, 2], [2, 2]]
+    networks: 6
+    groups: 2
+    stddev_features: 128
+
+  generator:
+    scope: 'generator'
+    load_case: ''
+    features: 512
+    encodings_source: 2
+    encodings_refrence: 2
+    decodings: 4
+    stride: 1
+
+  # train info
+  learning_rate: 0.0005
+  decay_steps: 500000
+  decay_alpha: 0.1
+  adam_beta_1: 0.4
+  adam_beta_2: 0.99
+  adam_epsilon: 0.00000001
+  weight_decay: 0.0001
+  steps_per_epoch: 1000
+  penalty_targets: ["!@#$%", "!@#$%"]
+  penalty_rate: [1.0, 1.0]
+
+  pitch_f0_min: 40.0
+  pitch_f0_max: 1100.0
+
+---
+cast_0:
+  supers: ['naevis_441h']
+  steps_per_epoch: 500
+
+---
+cast_1:
+  supers: ['naevis_441h']
+  steps_per_epoch: 500
+
+---
+cast_2:
+  supers: ['naevis_441h']
+  steps_per_epoch: 500
+
+---
+cast_3:
+  supers: ['naevis_441h']
+
+---
+cast_4:
+  supers: ['naevis_441h']
+  learning_rate: 0.0001
+
+---
+cast_5:
+  supers: ['naevis_441h']
+  learning_rate: 0.0001
+
+---
+cast_6:
+  supers: ['naevis_441h']
+  learning_rate: 0.0001
+
+---
+cast_7:
+  supers: ['naevis_441h']
+  learning_rate: 0.0001
+
+---
+cast_8:
+  supers: ['naevis_441h']
+  learning_rate: 0.0001
+
+---
+cast_9:
+  supers: ['naevis_441h']
+  learning_rate: 0.0001
+
+---
+cast_10:
+  supers: ['naevis_441h']
+  learning_rate: 0.0001
+
+---
+cast_11:
+  supers: ['naevis_441h']
+  learning_rate: 0.0001
+
+---
+cast_12:
+  supers: ['naevis_441h']
+  leaning_rate: 0.0001
+
+---
+cast_13:
+  supers: ['naevis_441h']
+  learning_rate: 0.0001
+
+---
+cast_14:
+  supers: ['naevis_441h']
+  learning_rate: 0.0001
+
+---
+cast_15:
+  supers: ['naevis_441h']
+  learning_rate: 0.0001
+
+---
+cast_16:
+  supers: ['naevis_441h']
+  learning_rate: 0.0001
+
+---
+cast_17:
+  supers: ['naevis_441h']
+  learning_rate: 0.0001
+
+---
+cast_18:
+  supers: ['naevis_441h']
+  learning_rate: 0.0001
+
+---
+cast_19:
+  supers: ['naevis_441h']
+  learning_rate: 0.0001
+
+---
+cast_20:
+  supers: ['naevis_441h']
+  learning_rate: 0.0001
+
+---
+cast_21:
+  supers: ['naevis_441h']
+  learning_rate: 0.0002
+
+---
+cast_22:
+  supers: ['naevis_441h']
+  learning_rate: 0.0002
+
+---
+cast_23:
+  supers: ['naevis_441h']
+  learning_rate: 0.0003
+
+---
+cast_24:
+  supers: ['naevis_441h']
+  learning_rate: 0.0003
+    #steps_per_epoch: 500
+
+---
+cast_25:
+  supers: ['naevis_441h']
+  learning_rate: 0.0003
+
+---
+cast_26:
+  supers: ['naevis_441h']
+  learning_rate: 0.0003
+
+---
+cast_27:
+  supers: ['naevis_441h']
+  learning_rate: 0.0003
+
+---
+cast_28:
+  supers: ['naevis_441h']
+  learning_rate: 0.0003
+
+---
+cast_29:
+  supers: ['naevis_441h']
+  learning_rate: 0.0003
+
+---
+cast_30:
+  supers: ['naevis_441h']
+  learning_rate: 0.0003
+
+---
+cast_31:
+  supers: ['naevis_441h']
+  learning_rate: 0.0003
+
+---
+cast_32:
+  supers: ['naevis_441h']
+  learning_rate: 0.0003
+
+---
+cast_33:
+  supers: ['naevis_441h']
+  learning_rate: 0.0003
+
+---
+cast_full:
+  supers: ['naevis_441h']
+  learning_rate: 0.0004
+
